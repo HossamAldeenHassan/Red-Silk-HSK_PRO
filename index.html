@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Red Silk HSK 1</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <div class="brand-title">Red Silk <span>HSK</span></div>
+    <div class="header-status">
+      <div class="streak-badge" title="سلسلة الأيام">🔥 <span id="ui-streak">0</span></div>
+      <div class="streak-badge" title="نقاط الخبرة" style="background: rgba(46, 204, 113, 0.1); color: #2ECC71;">⭐️ <span id="ui-xp">0</span></div>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main class="view-container">
+    <!-- 1. Home (Guided Path) -->
+    <section class="view-section active" id="view-home">
+      <div class="shell-card">
+        <div style="font-size: 32px; margin-bottom: 8px;">🚀</div>
+        <h3>الجاهزية للدروس</h3>
+        <button class="btn-primary" id="btn-start-learning">ابدأ التعلم</button>
+      </div>
+    </section>
+
+    <!-- 2. Review -->
+    <section class="view-section" id="view-review">
+      <div class="shell-card">
+        <div style="font-size: 32px; margin-bottom: 8px;">📚</div>
+        <h3>المراجعة</h3>
+        <p>نظام التكرار المتباعد للكلمات.</p>
+      </div>
+    </section>
+
+    <!-- 3. Practice -->
+    <section class="view-section" id="view-practice">
+      <div class="shell-card">
+        <div style="font-size: 32px; margin-bottom: 8px;">🎯</div>
+        <h3>التدريب</h3>
+        <p>التمارين الشاملة والقواعد.</p>
+      </div>
+    </section>
+
+    <!-- 4. Profile -->
+    <section class="view-section" id="view-profile">
+      <div class="shell-card">
+        <div style="font-size: 32px; margin-bottom: 8px;">👤</div>
+        <h3>الحساب</h3>
+        <p>متابعة التقدم والإحصائيات.</p>
+      </div>
+    </section>
+
+    <!-- 5. Assistant -->
+    <section class="view-section" id="view-assistant">
+      <div class="shell-card">
+        <div style="font-size: 32px; margin-bottom: 8px;">🐼</div>
+        <h3>المساعد Xīnlì</h3>
+        <p>قريباً (Coming Soon)</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-view="home">
+      <span class="icon">🏠</span>
+      <span class="label">الرئيسية</span>
+    </button>
+    <button class="nav-item" data-view="review">
+      <span class="icon">📚</span>
+      <span class="label">مراجعة</span>
+    </button>
+    <button class="nav-item" data-view="practice">
+      <span class="icon">🎯</span>
+      <span class="label">تدريب</span>
+    </button>
+    <button class="nav-item" data-view="profile">
+      <span class="icon">👤</span>
+      <span class="label">حسابي</span>
+    </button>
+    <button class="nav-item" data-view="assistant">
+      <span class="icon">🐼</span>
+      <span class="label">مساعد</span>
+    </button>
+  </nav>
+
+  <!-- Overlays -->
+  <div class="overlay" id="quiz-overlay">
+    <div class="overlay-header">
+      <button class="overlay-close-btn" aria-label="أغلق">✕</button>
+      <div class="overlay-title">جلسة تعليمية</div>
+    </div>
+    <div class="overlay-body">
+      <!-- QuizEngine INJECT -->
+    </div>
+  </div>
+
+  <!-- Scripts: Proper Scope Order -->
+  <script src="js/core/data.js"></script>
+  <script src="js/core/progress.js"></script>
+  <script src="js/core/learning.js"></script>
+  <script src="js/features/quiz.js"></script>
+  <script src="js/ui/overlays.js"></script>
+  <script src="js/ui/nav.js"></script>
+  <script src="js/core/init.js"></script>
+</body>
+</html>

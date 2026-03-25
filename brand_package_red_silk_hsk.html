@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red Silk HSK — Brand Identity Package</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red:        #C0392B;
+    --red-light:  #e74c3c;
+    --red-pale:   #FDF6F0;
+    --red-soft:   #f5e6e0;
+    --gold:       #E67E22;
+    --gold-light: #F39C12;
+    --dark:       #1a1010;
+    --brown:      #6B3A2A;
+    --brown-mid:  #c06050;
+    --skin:       #F4C5A0;
+    --text:       #2c1810;
+    --text-mid:   #5a3428;
+    --bg:         #FDF8F5;
+    --white:      #ffffff;
+    --border:     #e8d0c5;
+  }
+
+  body {
+    font-family: 'Noto Sans Arabic', Georgia, serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ===== COVER ===== */
+  .cover {
+    background: var(--red);
+    color: white;
+    text-align: center;
+    padding: 60px 40px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.04) 28px, rgba(255,255,255,0.04) 30px
+    );
+  }
+  .cover-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .cover-logo svg { filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3)); }
+  .cover h1 {
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .cover .en-title {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    opacity: 0.85;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .cover .version-chip {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 13px;
+    opacity: 0.9;
+    position: relative;
+  }
+
+  /* ===== LAYOUT ===== */
+  .page { max-width: 900px; margin: 0 auto; padding: 0 28px 60px; }
+  section { margin-top: 56px; }
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--red);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--red);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2 .num {
+    background: var(--red);
+    color: white;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  h3 { font-size: 16px; font-weight: 700; color: var(--brown); margin-bottom: 12px; }
+  p { color: var(--text-mid); line-height: 1.75; margin-bottom: 10px; }
+
+  /* ===== COLORS ===== */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .color-swatch {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .swatch-block { height: 90px; }
+  .swatch-info { padding: 10px 12px; background: white; }
+  .swatch-name { font-size: 13px; font-weight: 700; color: var(--text); }
+  .swatch-hex  { font-size: 12px; color: var(--text-mid); font-family: monospace; }
+  .swatch-role { font-size: 11px; color: #999; margin-top: 2px; }
+
+  /* ===== TYPOGRAPHY ===== */
+  .type-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .type-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .type-sample-ar { font-size: 28px; font-weight: 700; color: var(--red); line-height: 1.3; margin-bottom: 8px; }
+  .type-sample-en { font-family: Georgia, serif; font-size: 24px; color: var(--red); margin-bottom: 8px; }
+  .type-meta { font-size: 12px; color: #999; }
+
+  /* ===== MASCOTS ===== */
+  .mascot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .mascot-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+  }
+  .mascot-card svg { display: block; margin: 0 auto 16px; }
+  .mascot-card h3 { font-size: 18px; color: var(--red); margin-bottom: 4px; }
+  .mascot-card p { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+  .mascot-badge {
+    display: inline-block;
+    background: var(--red-soft);
+    color: var(--red);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    border: 1px solid #e8c0b0;
+  }
+
+  /* ===== EXPRESSIONS ===== */
+  .expr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .expr-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .expr-emoji { font-size: 28px; margin-bottom: 6px; }
+  .expr-label { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .expr-desc  { font-size: 11px; color: #999; line-height: 1.4; }
+
+  /* ===== LOGO MARKS ===== */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .logo-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 20px 18px;
+    text-align: center;
+  }
+  .logo-card.dark-bg { background: var(--dark); }
+  .logo-card.red-bg  { background: var(--red); }
+  .logo-label { font-size: 12px; color: #999; margin-top: 14px; }
+
+  /* ===== USAGE RULES ===== */
+  .rule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .rule-card {
+    border-radius: 12px;
+    padding: 18px 20px;
+    border: 1px solid;
+  }
+  .rule-card.do   { background: #f0faf4; border-color: #a8d5b5; }
+  .rule-card.dont { background: #fff4f4; border-color: #f5b8b8; }
+  .rule-card h4   { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .rule-card.do   h4  { color: #27ae60; }
+  .rule-card.dont h4  { color: #e24b4a; }
+  .rule-card ul { list-style: none; padding: 0; }
+  .rule-card ul li {
+    font-size: 13px; color: var(--text-mid);
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    display: flex; gap: 8px;
+    line-height: 1.5;
+  }
+  .rule-card ul li:last-child { border-bottom: none; }
+  .rule-card.do   ul li::before { content: "✓"; color: #27ae60; font-weight: 700; flex-shrink: 0; }
+  .rule-card.dont ul li::before { content: "✕"; color: #e24b4a; font-weight: 700; flex-shrink: 0; }
+
+  /* ===== APP PLACEMENT ===== */
+  .placement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .place-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .place-icon { font-size: 24px; margin-bottom: 8px; }
+  .place-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .place-desc  { font-size: 12px; color: #999; line-height: 1.5; }
+
+  /* ===== FOOTER ===== */
+  .brand-footer {
+    background: var(--red);
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 13px;
+    margin-top: 60px;
+  }
+  .brand-footer strong { color: white; }
+
+  /* ===== PRINT ===== */
+  @media print {
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .color-swatch .swatch-block { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo">
+    <!-- Mini logo mark -->
+    <svg width="70" height="70" viewBox="0 0 70 70">
+      <circle cx="35" cy="35" r="33" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+      <!-- Head silhouette -->
+      <ellipse cx="35" cy="28" rx="16" ry="17" fill="#F4C5A0"/>
+      <ellipse cx="35" cy="16" rx="17" ry="10" fill="#1a1010"/>
+      <!-- Eyes -->
+      <ellipse cx="29" cy="28" rx="4" ry="4.5" fill="white"/>
+      <ellipse cx="41" cy="28" rx="4" ry="4.5" fill="white"/>
+      <ellipse cx="29" cy="29" rx="2.5" ry="3" fill="#2c1010"/>
+      <ellipse cx="41" cy="29" rx="2.5" ry="3" fill="#2c1010"/>
+      <!-- Blush -->
+      <ellipse cx="22" cy="33" rx="4" ry="2.5" fill="#f08070" opacity="0.5"/>
+      <ellipse cx="48" cy="33" rx="4" ry="2.5" fill="#f08070" opacity="0.5"/>
+      <!-- Smile -->
+      <path d="M28 39 Q35 44 42 39" fill="none" stroke="#c06050" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Body -->
+      <ellipse cx="35" cy="57" rx="18" ry="14" fill="#C0392B"/>
+      <!-- Collar -->
+      <ellipse cx="35" cy="46" rx="8" ry="4" fill="#f5f0eb"/>
+      <!-- Heart char -->
+      <text x="35" y="61" text-anchor="middle" font-family="serif" font-size="10" fill="white">心</text>
+    </svg>
+  </div>
+  <h1>Red Silk HSK</h1>
+  <div class="en-title">Brand Identity & Mascot Guidelines — دليل الهوية البصرية والماسكوت</div>
+  <div class="version-chip">v1.0 — 2026 · شينلي / Xīnlì (心力)</div>
+</div>
+
+<div class="page">
+
+  <!-- 1. BRAND OVERVIEW -->
+  <section>
+    <h2><span class="num">١</span> نظرة عامة على العلامة التجارية · Brand Overview</h2>
+    <p>
+      <strong>Red Silk HSK</strong> هي منصة تعليمية لتعلم اللغة الصينية مصممة للمتعلمين العرب. اسمها مستوحى من
+      <em>الحرير الأحمر الصيني</em> — رمز الفرح والازدهار والجسر بين الثقافتين.
+    </p>
+    <p>
+      الهوية البصرية تقوم على ثلاث ركائز: <strong>الدفء</strong> (ألوان الحرير والذهب)،
+      <strong>الأصالة</strong> (مفردات بصرية من التراث الصيني)، و<strong>البهجة</strong> (الأسلوب الأنيمي المحبوب).
+    </p>
+  </section>
+
+  <!-- 2. COLOR PALETTE -->
+  <section>
+    <h2><span class="num">٢</span> لوحة الألوان · Color Palette</h2>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#C0392B;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Silk Red</div>
+          <div class="swatch-hex">#C0392B</div>
+          <div class="swatch-role">اللون الرئيسي — Primary</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#e74c3c;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Bright Red</div>
+          <div class="swatch-hex">#e74c3c</div>
+          <div class="swatch-role">تمييز — Accent</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#E67E22;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Silk Gold</div>
+          <div class="swatch-hex">#E67E22</div>
+          <div class="swatch-role">الذهب — Gold / Rewards</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#F39C12;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Light Gold</div>
+          <div class="swatch-hex">#F39C12</div>
+          <div class="swatch-role">ذهب فاتح — XP / Stars</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#FDF6F0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Silk Cream</div>
+          <div class="swatch-hex">#FDF6F0</div>
+          <div class="swatch-role">خلفية — Background</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#f5e6e0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Rose Petal</div>
+          <div class="swatch-hex">#f5e6e0</div>
+          <div class="swatch-role">كروت — Cards</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#6B3A2A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Deep Sandalwood</div>
+          <div class="swatch-hex">#6B3A2A</div>
+          <div class="swatch-role">نصوص ثانوية — Secondary Text</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#1a1010;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Ink Black</div>
+          <div class="swatch-hex">#1a1010</div>
+          <div class="swatch-role">شعر الماسكوت — Dark</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:13px; color:#999;">
+      نسب الاستخدام المقترحة: الأحمر 40% · الكريمي 35% · الذهبي 15% · الداكن 10%
+    </p>
+  </section>
+
+  <!-- 3. TYPOGRAPHY -->
+  <section>
+    <h2><span class="num">٣</span> الخطوط · Typography</h2>
+    <div class="type-row">
+      <div class="type-card">
+        <div class="type-sample-ar">تعلّم الصينية</div>
+        <div class="type-meta">عناوين رئيسية — Noto Sans Arabic, 700</div>
+      </div>
+      <div class="type-card">
+        <div class="type-sample-en" style="font-family:Georgia,serif; direction:ltr; text-align:left;">Red Silk HSK</div>
+        <div class="type-meta">العنوان الإنجليزي — Georgia Serif, 700</div>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-card">
+        <div style="font-size:20px; color: var(--brown); margin-bottom:8px; font-weight:500;">心力 · Xīnlì</div>
+        <div class="type-meta">حروف صينية في الواجهة — Noto Serif SC</div>
+      </div>
+      <div class="type-card">
+        <div style="font-size:15px; color: var(--text-mid); line-height:1.7; margin-bottom:8px;">نص الجسم العادي — مريح للقراءة الطويلة</div>
+        <div class="type-meta">نص الجسم — Noto Sans Arabic, 400, 15px</div>
+      </div>
+    </div>
+    <h3>تسلسل الحجوم</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:baseline;">
+      <span style="font-size:32px; font-weight:700; color:var(--red);">32px</span>
+      <span style="font-size:24px; font-weight:700; color:var(--red);">24px</span>
+      <span style="font-size:20px; font-weight:700; color:var(--brown);">20px</span>
+      <span style="font-size:16px; font-weight:500; color:var(--text);">16px</span>
+      <span style="font-size:13px; color:var(--text-mid);">13px</span>
+      <span style="font-size:11px; color:#999;">11px</span>
+    </div>
+  </section>
+
+  <!-- 4. MASCOT — BOTH VERSIONS -->
+  <section>
+    <h2><span class="num">٤</span> الماسكوت · Mascot — شينلي / Xīnlì</h2>
+    <p>شينلي (心力) — تعني "قوة القلب". ماسكوت أنيمي أصيل يجمع بين الثقافة الصينية والجمهور العربي. يحمل لفافة الحرير الأحمر رمزاً للاسم.</p>
+
+    <div class="mascot-grid">
+      <!-- Girl version -->
+      <div class="mascot-card">
+        <div class="mascot-badge">النسخة الأصلية</div>
+        <!-- Inline mascot girl (compact) -->
+        <svg width="180" height="220" viewBox="60 55 280 350">
+          <ellipse cx="200" cy="370" rx="58" ry="72" fill="#C0392B"/>
+          <path d="M178 320 Q195 360 188 400" fill="none" stroke="#e74c3c" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          <ellipse cx="200" cy="310" rx="26" ry="14" fill="#f5f0eb"/>
+          <rect x="188" y="295" width="24" height="26" rx="8" fill="#F4C5A0"/>
+          <ellipse cx="200" cy="262" rx="56" ry="62" fill="#F4C5A0"/>
+          <ellipse cx="200" cy="222" rx="58" ry="36" fill="#1a1010"/>
+          <rect x="142" y="220" width="20" height="90" rx="10" fill="#1a1010"/>
+          <rect x="238" y="220" width="20" height="90" rx="10" fill="#1a1010"/>
+          <rect x="144" y="222" width="6" height="75" rx="3" fill="#C0392B" opacity="0.75"/>
+          <ellipse cx="200" cy="228" rx="56" ry="22" fill="#1a1010"/>
+          <path d="M154 236 Q168 262 176 255" fill="#1a1010" stroke="none"/>
+          <path d="M246 236 Q232 262 224 255" fill="#1a1010" stroke="none"/>
+          <circle cx="238" cy="228" r="9" fill="#C0392B"/>
+          <circle cx="238" cy="228" r="5" fill="#e74c3c"/>
+          <line x1="238" y1="237" x2="236" y2="256" stroke="#C0392B" stroke-width="2" stroke-linecap="round"/>
+          <path d="M171 238 Q182 232 193 237" fill="none" stroke="#2c1010" stroke-width="2.8" stroke-linecap="round"/>
+          <path d="M207 237 Q218 232 229 238" fill="none" stroke="#2c1010" stroke-width="2.8" stroke-linecap="round"/>
+          <ellipse cx="182" cy="255" rx="16" ry="18" fill="white"/>
+          <ellipse cx="182" cy="257" rx="11" ry="13" fill="#6B3A2A"/>
+          <ellipse cx="182" cy="256" rx="7" ry="8.5" fill="#2c1010"/>
+          <ellipse cx="177" cy="251" rx="3.5" ry="3.5" fill="white"/>
+          <ellipse cx="218" cy="255" rx="16" ry="18" fill="white"/>
+          <ellipse cx="218" cy="257" rx="11" ry="13" fill="#6B3A2A"/>
+          <ellipse cx="218" cy="256" rx="7" ry="8.5" fill="#2c1010"/>
+          <ellipse cx="213" cy="251" rx="3.5" ry="3.5" fill="white"/>
+          <ellipse cx="162" cy="271" rx="12" ry="7" fill="#f08070" opacity="0.45"/>
+          <ellipse cx="238" cy="271" rx="12" ry="7" fill="#f08070" opacity="0.45"/>
+          <path d="M186 290 Q200 300 214 290" fill="none" stroke="#c06050" stroke-width="2.2" stroke-linecap="round"/>
+          <ellipse cx="148" cy="358" rx="18" ry="10" fill="#C0392B" transform="rotate(-25,148,358)"/>
+          <ellipse cx="140" cy="375" rx="14" ry="9" fill="#F4C5A0" transform="rotate(-15,140,375)"/>
+          <ellipse cx="252" cy="358" rx="18" ry="10" fill="#C0392B" transform="rotate(25,252,358)"/>
+          <ellipse cx="260" cy="375" rx="14" ry="9" fill="#F4C5A0" transform="rotate(15,260,375)"/>
+          <rect x="128" y="388" width="144" height="20" rx="6" fill="#C0392B" opacity="0.92"/>
+          <circle cx="128" cy="398" r="12" fill="#E67E22"/>
+          <circle cx="272" cy="398" r="12" fill="#E67E22"/>
+          <text x="200" y="403" text-anchor="middle" font-family="serif" font-size="14" fill="white" font-weight="bold">心力</text>
+        </svg>
+        <h3>شينلي — النسخة البنت</h3>
+        <p>شعر طويل بخيط أحمر، زخرفة شعر دائرية، خدود وردية أكثر وضوحاً، رداء أنيق.</p>
+      </div>
+
+      <!-- Boy version -->
+      <div class="mascot-card">
+        <div class="mascot-badge" style="background:#fff4e8; color:#E67E22; border-color:#f5c890;">نسخة الولد</div>
+        <svg width="180" height="220" viewBox="55 55 290 355">
+          <ellipse cx="200" cy="368" rx="64" ry="70" fill="#C0392B"/>
+          <rect x="145" y="310" width="110" height="100" rx="8" fill="#C0392B"/>
+          <rect x="186" y="290" width="28" height="28" rx="4" fill="#a93226"/>
+          <rect x="192" y="292" width="16" height="22" rx="3" fill="#f5f0eb"/>
+          <circle cx="200" cy="296" r="2.5" fill="#E67E22"/>
+          <circle cx="200" cy="318" r="2" fill="#E67E22" opacity="0.8"/>
+          <circle cx="200" cy="332" r="2" fill="#E67E22" opacity="0.8"/>
+          <rect x="187" y="285" width="26" height="24" rx="7" fill="#F4C5A0"/>
+          <ellipse cx="200" cy="254" rx="58" ry="60" fill="#F4C5A0"/>
+          <path d="M148 265 Q148 295 168 308 Q200 318 232 308 Q252 295 252 265" fill="#F4C5A0"/>
+          <ellipse cx="200" cy="218" rx="60" ry="30" fill="#1a1010"/>
+          <path d="M170 212 Q180 195 190 205 Q200 190 210 204 Q220 195 230 212" fill="#1a1010"/>
+          <rect x="142" y="218" width="16" height="28" rx="8" fill="#1a1010"/>
+          <rect x="242" y="218" width="16" height="28" rx="8" fill="#1a1010"/>
+          <path d="M215 198 Q222 205 220 216" fill="none" stroke="#C0392B" stroke-width="5" stroke-linecap="round" opacity="0.75"/>
+          <path d="M157 228 Q163 242 170 238" fill="#1a1010"/>
+          <path d="M243 228 Q237 242 230 238" fill="#1a1010"/>
+          <rect x="234" y="225" width="22" height="5" rx="2.5" fill="#C0392B"/>
+          <circle cx="256" cy="227" r="4" fill="#E67E22"/>
+          <path d="M170 236 Q181 231 194 234" fill="none" stroke="#1a1010" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M206 234 Q219 231 230 236" fill="none" stroke="#1a1010" stroke-width="3.5" stroke-linecap="round"/>
+          <ellipse cx="182" cy="252" rx="15" ry="16" fill="white"/>
+          <ellipse cx="182" cy="254" rx="10" ry="11.5" fill="#5C2E20"/>
+          <ellipse cx="182" cy="253" rx="6.5" ry="8" fill="#1c0c06"/>
+          <ellipse cx="177" cy="248" rx="3" ry="3" fill="white"/>
+          <ellipse cx="218" cy="252" rx="15" ry="16" fill="white"/>
+          <ellipse cx="218" cy="254" rx="10" ry="11.5" fill="#5C2E20"/>
+          <ellipse cx="218" cy="253" rx="6.5" ry="8" fill="#1c0c06"/>
+          <ellipse cx="213" cy="248" rx="3" ry="3" fill="white"/>
+          <ellipse cx="163" cy="268" rx="10" ry="6" fill="#f08070" opacity="0.28"/>
+          <ellipse cx="237" cy="268" rx="10" ry="6" fill="#f08070" opacity="0.28"/>
+          <path d="M196 275 L200 282 L204 275" fill="none" stroke="#c09080" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M188 292 Q200 300 212 292" fill="none" stroke="#c06050" stroke-width="2.2" stroke-linecap="round"/>
+          <ellipse cx="144" cy="348" rx="22" ry="11" fill="#C0392B" transform="rotate(-22,144,348)"/>
+          <ellipse cx="134" cy="368" rx="16" ry="10" fill="#F4C5A0" transform="rotate(-12,134,368)"/>
+          <ellipse cx="256" cy="348" rx="22" ry="11" fill="#C0392B" transform="rotate(22,256,348)"/>
+          <ellipse cx="266" cy="368" rx="16" ry="10" fill="#F4C5A0" transform="rotate(12,266,368)"/>
+          <rect x="126" y="385" width="148" height="22" rx="7" fill="#C0392B" opacity="0.92"/>
+          <circle cx="126" cy="396" r="13" fill="#E67E22"/>
+          <circle cx="274" cy="396" r="13" fill="#E67E22"/>
+          <text x="200" y="402" text-anchor="middle" font-family="serif" font-size="14" fill="white" font-weight="bold">心力</text>
+        </svg>
+        <h3>شينلي — نسخة الولد</h3>
+        <p>شعر قصير مبعثر، حاجبان أكثر استقامةً، طوق ماندرين، كتفان أعرض، دبوس جانبي بدل الزخرفة الدائرية.</p>
+      </div>
+    </div>
+
+    <!-- Differences table -->
+    <h3>الفروق بين النسختين</h3>
+    <table style="width:100%; border-collapse:collapse; font-size:13px; margin-bottom:24px;">
+      <thead>
+        <tr style="background:var(--red); color:white;">
+          <th style="padding:10px 14px; text-align:right; border-radius:8px 0 0 0;">العنصر</th>
+          <th style="padding:10px 14px; text-align:center;">نسخة البنت</th>
+          <th style="padding:10px 14px; text-align:center; border-radius:0 8px 0 0;">نسخة الولد</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:white;">
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border);">الشعر</td>
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border); text-align:center;">طويل مع خصلتين جانبيتين</td>
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border); text-align:center;">قصير مبعثر من الأعلى</td>
+        </tr>
+        <tr style="background:var(--red-pale);">
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border);">الخيط الأحمر</td>
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border); text-align:center;">في الخصلة الجانبية اليسرى</td>
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border); text-align:center;">خيط في الشعر العلوي</td>
+        </tr>
+        <tr style="background:white;">
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border);">زخرفة الشعر</td>
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border); text-align:center;">كرة دائرية حمراء + شرابة</td>
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border); text-align:center;">دبوس أفقي + نقطة ذهبية</td>
+        </tr>
+        <tr style="background:var(--red-pale);">
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border);">الحاجبان</td>
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border); text-align:center;">مقوّسان ناعمان</td>
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border); text-align:center;">مستقيمان وأكثر سماكةً</td>
+        </tr>
+        <tr style="background:white;">
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border);">الخدود الوردية</td>
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border); text-align:center;">أكثر وضوحاً (45%)</td>
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border); text-align:center;">خفيفة وأقل (28%)</td>
+        </tr>
+        <tr style="background:var(--red-pale);">
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border);">الرداء</td>
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border); text-align:center;">رداء دائري الكتفين</td>
+          <td style="padding:9px 14px; border-bottom:1px solid var(--border); text-align:center;">قفطان ماندرين مع أزرار ذهبية</td>
+        </tr>
+        <tr style="background:white;">
+          <td style="padding:9px 14px;">الكتفان</td>
+          <td style="padding:9px 14px; text-align:center;">مستديرة وناعمة</td>
+          <td style="padding:9px 14px; text-align:center;">أعرض وأكثر زاوية</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:#999;"><strong>ثابت في كلا النسختين:</strong> اللون الأحمر #C0392B، الحرف 心力 على اللفافة، اللفافة الذهبية، البريق والنجوم، الأسلوب الأنيمي، نسبة الجسم، هوية العلامة التجارية.</p>
+  </section>
+
+  <!-- 5. EXPRESSIONS -->
+  <section>
+    <h2><span class="num">٥</span> تعبيرات الماسكوت · Mascot Expressions</h2>
+    <p>يجب أن يكون لشينلي ست تعبيرات أساسية على الأقل، كل منها مرتبط بحالة محددة في التطبيق:</p>
+    <div class="expr-grid">
+      <div class="expr-card">
+        <div class="expr-emoji">😊</div>
+        <div class="expr-label">افتراضي</div>
+        <div class="expr-desc">ابتسامة هادئة ودودة — الحالة العامة</div>
+      </div>
+      <div class="expr-card">
+        <div class="expr-emoji">🎉</div>
+        <div class="expr-label">إجابة صحيحة</div>
+        <div class="expr-desc">فرح واضح مع نجوم تتطاير حول الوجه</div>
+      </div>
+      <div class="expr-card">
+        <div class="expr-emoji">💪</div>
+        <div class="expr-label">تشجيع</div>
+        <div class="expr-desc">إبهام لأعلى مع خطاب حماسي قصير</div>
+      </div>
+      <div class="expr-card">
+        <div class="expr-emoji">🤔</div>
+        <div class="expr-label">تلميح</div>
+        <div class="expr-desc">يد على الذقن — عند تقديم مساعدة أو خيوط</div>
+      </div>
+      <div class="expr-card">
+        <div class="expr-emoji">😔</div>
+        <div class="expr-label">خطأ / تعاطف</div>
+        <div class="expr-desc">حزن لطيف — "لا بأس، حاول مجدداً"</div>
+      </div>
+      <div class="expr-card">
+        <div class="expr-emoji">✨</div>
+        <div class="expr-label">إنجاز</div>
+        <div class="expr-desc">وضعية احتفالية كاملة مع اللفافة مرفوعة</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. LOGO MARKS -->
+  <section>
+    <h2><span class="num">٦</span> علامات الشعار · Logo Marks</h2>
+    <div class="logo-grid">
+      <!-- Full logo light -->
+      <div class="logo-card" style="display:flex; flex-direction:column; align-items:center;">
+        <svg width="54" height="54" viewBox="0 0 70 70">
+          <circle cx="35" cy="35" r="33" fill="#C0392B"/>
+          <ellipse cx="35" cy="26" rx="14" ry="15" fill="#F4C5A0"/>
+          <ellipse cx="35" cy="15" rx="15" ry="9" fill="#1a1010"/>
+          <ellipse cx="29" cy="26" rx="4" ry="4.5" fill="white"/>
+          <ellipse cx="41" cy="26" rx="4" ry="4.5" fill="white"/>
+          <ellipse cx="29" cy="27" rx="2.5" ry="3" fill="#2c1010"/>
+          <ellipse cx="41" cy="27" rx="2.5" ry="3" fill="#2c1010"/>
+          <ellipse cx="22" cy="31" rx="3.5" ry="2" fill="#f08070" opacity="0.5"/>
+          <ellipse cx="48" cy="31" rx="3.5" ry="2" fill="#f08070" opacity="0.5"/>
+          <path d="M28 37 Q35 42 42 37" fill="none" stroke="#c06050" stroke-width="1.5" stroke-linecap="round"/>
+          <ellipse cx="35" cy="54" rx="16" ry="12" fill="rgba(255,255,255,0.2)"/>
+          <text x="35" y="59" text-anchor="middle" font-family="serif" font-size="10" fill="white">心</text>
+        </svg>
+        <div class="logo-label">أيقونة دائرية — App Icon</div>
+      </div>
+
+      <!-- Text mark -->
+      <div class="logo-card" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+        <div style="text-align:center; direction:ltr;">
+          <div style="font-family:Georgia,serif; font-size:22px; font-weight:700; color:#C0392B; line-height:1.1;">Red Silk</div>
+          <div style="font-family:Georgia,serif; font-size:14px; color:#E67E22; letter-spacing:3px;">H S K</div>
+        </div>
+        <div class="logo-label">نص فقط — Wordmark</div>
+      </div>
+
+      <!-- Full horizontal -->
+      <div class="logo-card" style="display:flex; flex-direction:column; align-items:center; justify-content:center; grid-column: span 2;">
+        <div style="display:flex; align-items:center; gap:14px; direction:ltr;">
+          <svg width="44" height="44" viewBox="0 0 70 70">
+            <circle cx="35" cy="35" r="33" fill="#C0392B"/>
+            <ellipse cx="35" cy="26" rx="14" ry="15" fill="#F4C5A0"/>
+            <ellipse cx="35" cy="15" rx="15" ry="9" fill="#1a1010"/>
+            <ellipse cx="29" cy="26" rx="4" ry="4.5" fill="white"/>
+            <ellipse cx="41" cy="26" rx="4" ry="4.5" fill="white"/>
+            <ellipse cx="29" cy="27" rx="2.5" ry="3" fill="#2c1010"/>
+            <ellipse cx="41" cy="27" rx="2.5" ry="3" fill="#2c1010"/>
+            <path d="M28 37 Q35 42 42 37" fill="none" stroke="#c06050" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="35" y="59" text-anchor="middle" font-family="serif" font-size="10" fill="white">心</text>
+          </svg>
+          <div>
+            <div style="font-family:Georgia,serif; font-size:24px; font-weight:700; color:#C0392B; line-height:1;">Red Silk HSK</div>
+            <div style="font-size:13px; color:#6B3A2A; font-family:'Noto Sans Arabic',Georgia,serif;">منصة تعلم الصينية للناطقين بالعربية</div>
+          </div>
+        </div>
+        <div class="logo-label">شعار كامل — Full Logo (Horizontal)</div>
+      </div>
+
+      <!-- Dark bg -->
+      <div class="logo-card dark-bg" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+        <div style="display:flex; align-items:center; gap:10px; direction:ltr;">
+          <svg width="36" height="36" viewBox="0 0 70 70">
+            <circle cx="35" cy="35" r="33" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <ellipse cx="35" cy="26" rx="14" ry="15" fill="#F4C5A0"/>
+            <ellipse cx="35" cy="15" rx="15" ry="9" fill="#1a1010"/>
+            <ellipse cx="29" cy="26" rx="4" ry="4.5" fill="white"/>
+            <ellipse cx="41" cy="26" rx="4" ry="4.5" fill="white"/>
+            <ellipse cx="29" cy="27" rx="2.5" ry="3" fill="#2c1010"/>
+            <ellipse cx="41" cy="27" rx="2.5" ry="3" fill="#2c1010"/>
+            <path d="M28 37 Q35 42 42 37" fill="none" stroke="#e07060" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="35" y="59" text-anchor="middle" font-family="serif" font-size="10" fill="white" opacity="0.8">心</text>
+          </svg>
+          <div>
+            <div style="font-family:Georgia,serif; font-size:16px; font-weight:700; color:white; line-height:1;">Red Silk HSK</div>
+            <div style="font-size:11px; color:#E67E22;">心力 · Xīnlì</div>
+          </div>
+        </div>
+        <div class="logo-label" style="color:#888;">على خلفية داكنة</div>
+      </div>
+
+      <!-- Red bg -->
+      <div class="logo-card red-bg" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+        <div style="direction:ltr; text-align:center;">
+          <div style="font-family:Georgia,serif; font-size:20px; font-weight:700; color:white; line-height:1;">Red Silk</div>
+          <div style="font-family:Georgia,serif; font-size:12px; color:rgba(255,255,255,0.7); letter-spacing:3px;">H S K</div>
+          <div style="font-family:serif; font-size:18px; color:rgba(255,255,255,0.5); margin-top:4px;">心力</div>
+        </div>
+        <div class="logo-label" style="color:rgba(255,255,255,0.5);">على خلفية حمراء</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. APP PLACEMENTS -->
+  <section>
+    <h2><span class="num">٧</span> مواضع الماسكوت في التطبيق</h2>
+    <div class="placement-grid">
+      <div class="place-card">
+        <div class="place-icon">🚀</div>
+        <div class="place-title">شاشة الإطلاق (Splash)</div>
+        <div class="place-desc">شينلي في المنتصف كاملاً مع لفافتها — اسم التطبيق يظهر بتأثير كتابة</div>
+      </div>
+      <div class="place-card">
+        <div class="place-icon">🏠</div>
+        <div class="place-title">الصفحة الرئيسية</div>
+        <div class="place-desc">نسخة صغيرة (64px) في الزاوية — فقاعة كلام تشير للدرس التالي</div>
+      </div>
+      <div class="place-card">
+        <div class="place-icon">✅</div>
+        <div class="place-title">إجابة صحيحة</div>
+        <div class="place-desc">انيميشن فرح مع نجوم تتطاير و XP ترتفع للأعلى</div>
+      </div>
+      <div class="place-card">
+        <div class="place-icon">❌</div>
+        <div class="place-title">إجابة خاطئة</div>
+        <div class="place-desc">تعبير تعاطف مع فقاعة "حاول مرة أخرى!" — بدون إحباط</div>
+      </div>
+      <div class="place-card">
+        <div class="place-icon">🏆</div>
+        <div class="place-title">إنجاز / Badge</div>
+        <div class="place-desc">وضعية احتفال كاملة — لفافة مرفوعة — احتفال بصري كامل</div>
+      </div>
+      <div class="place-card">
+        <div class="place-icon">📭</div>
+        <div class="place-title">Empty State</div>
+        <div class="place-desc">شينلي تشير بفضول مع عبارة "لم تبدأ بعد — ابدأ الآن!"</div>
+      </div>
+      <div class="place-card">
+        <div class="place-icon">💤</div>
+        <div class="place-title">تذكير Streak</div>
+        <div class="place-desc">شينلي نائمة مع ساعة — "عُد اليوم وحافظ على سلسلتك!"</div>
+      </div>
+      <div class="place-card">
+        <div class="place-icon">📲</div>
+        <div class="place-title">شاشة التعريف</div>
+        <div class="place-desc">شينلي تشرح كيفية استخدام التطبيق — 3 شرائح Onboarding</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. USAGE RULES -->
+  <section>
+    <h2><span class="num">٨</span> قواعد الاستخدام · Usage Rules</h2>
+    <div class="rule-grid">
+      <div class="rule-card do">
+        <h4>✓ افعل — Do</h4>
+        <ul>
+          <li>استخدم الألوان المحددة في لوحة العلامة التجارية فقط</li>
+          <li>حافظ على نسب الماسكوت عند تغيير الحجم</li>
+          <li>أضف مساحة بيضاء كافية حول الشعار</li>
+          <li>استخدم الخط الأحمر في عناوين التطبيق الرئيسية</li>
+          <li>حافظ على ظهور الخيط الأحمر في الشعر دائماً</li>
+          <li>اجعل اللفافة الذهبية ظاهرة في كل صورة كاملة</li>
+        </ul>
+      </div>
+      <div class="rule-card dont">
+        <h4>✕ لا تفعل — Don't</h4>
+        <ul>
+          <li>لا تغيّر ألوان الماسكوت أو تُضيف ألواناً جديدة</li>
+          <li>لا تضع الشعار على خلفيات تُخفي ألوانه</li>
+          <li>لا تمسخ نسب الوجه أو العيون</li>
+          <li>لا تستخدم خطوطاً أخرى في العنوان الرئيسي</li>
+          <li>لا تُزيل اللفافة أو حرف 心力</li>
+          <li>لا تجعل الماسكوت يُعبّر عن غضب حقيقي — دائماً ودود</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<div class="brand-footer">
+  <strong>Red Silk HSK · شينلي / Xīnlì (心力)</strong><br>
+  Brand Identity Package v1.0 — 2026 · Hossam Aldeen Hassan<br>
+  جميع الحقوق محفوظة — هذه الوثيقة خاصة بمشروع Red Silk HSK
+</div>
+
+</body>
+</html>
